@@ -32,6 +32,11 @@ class AlienInvasion:
             self.bullets.update()
             self._update_screen()
 
+            # Позбавитися куль, що зникли
+            for bullet in self.bullets.copy():
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet)
+
     def _check_events(self):
         """Реагувати на натискання клавіш та події миші"""
         for event in pygame.event.get():
