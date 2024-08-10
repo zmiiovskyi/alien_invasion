@@ -1,6 +1,7 @@
 import pygame
 from pygame.sprite import Sprite
 
+
 class Bullet(Sprite):
     """Клас курування кулями, випущеними з корабля"""
 
