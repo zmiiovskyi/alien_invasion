@@ -34,6 +34,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self._update_ballets()
+            self._update_aliens()
             self._update_screen()
 
     def _check_events(self):
@@ -71,6 +72,7 @@ class AlienInvasion:
             new_bullet = Bullet(self)
             self.bullets.add(new_bullet)
 
+
     def _update_ballets(self):
         """Оновити позицію куль та позбавитися страрих куль"""
         # Оновити позицію куль
@@ -80,6 +82,10 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
+
+    def _update_aliens(self):
+        """Оновлення позиції прибульців у флоті"""
+        self.aliens.update()
 
     def _create_fleet(self):
         """Створити флот прибульців"""
